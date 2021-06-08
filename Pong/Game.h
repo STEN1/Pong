@@ -1,25 +1,17 @@
 #pragma once
 #include <SDL2/SDL.h>
 
-
-class Game
+template<typename T>
+struct Vec2
 {
-public:
-	Game();
-	// Initialize the game
-	bool Initialize();
-	// Runs the game loop until the game is over
-	void RunLoop();
-	// Shutdown the game
-	void Shutdown();
-private:
-	// Helper functions for the game loop
-	void ProcessInput();
-	void UpdateGame();
-	void GenerateOutput();
-	// Window created by SDL
-	SDL_Window* mWindow;
-	SDL_Renderer* mRenderer;
-	// Game should continue to run
-	bool mIsRunning;
+	T x;
+	T y;
 };
+
+SDL_Window* mWindow{nullptr};
+SDL_Renderer* mRenderer{nullptr};
+
+bool mIsRunning{true};
+
+Vec2<float> ballPos{200.f, 200.f};
+Vec2<float> paddlePos{30.f, 300.f};
